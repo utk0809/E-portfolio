@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-// Profile image loaded from public folder
-const profileImg = '/me.jpeg';
+// Profile image loaded from public folder using the correct base URL for deployment
+const profileImg = `${import.meta.env.BASE_URL}me.jpeg`;
 
 const About = () => {
   const [ref, inView] = useInView({

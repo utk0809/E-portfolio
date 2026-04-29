@@ -16,7 +16,7 @@ const Leadership = () => {
       date: '2025 · National-Level Tech Event | ACTS President',
       desc: 'Led and organized a national-level technical event, managing end-to-end planning, team coordination, and execution. Created a platform for innovation, creativity, and competitive learning.',
       features: ['InspireX (Guest Session)', 'Shark Tank (Startup Pitching)', 'Hackathon', 'Squid Game (Strategy Event)', 'Tech Elocution'],
-      image: '/techno_main.jpeg',
+      image: `${import.meta.env.BASE_URL}techno_main.jpeg`,
       imagePlaceholder: 'Technophilia Event Organization'
     },
     {
@@ -25,7 +25,7 @@ const Leadership = () => {
       date: '2025 · Technical Workshop | ACTS President',
       desc: 'Led the organization of a peer learning workshop for second-year students, focusing on building strong technical foundations through collaborative learning.',
       features: ['C Programming', 'UI/UX Design', 'Peer Learning'],
-      image: '/code_create.jpg',
+      image: `${import.meta.env.BASE_URL}code_create.jpg`,
       imagePlaceholder: 'Code & Create Workshop'
     },
     {
@@ -34,7 +34,7 @@ const Leadership = () => {
       date: '2025 · Engineers’ Day Event | ACTS President',
       desc: 'Directed the planning and execution of an extempore elocution competition within 24 hours, demonstrating strong leadership, fast decision-making, and team coordination.',
       features: ['Public Speaking', 'Execution', 'Time Management'],
-      image: '/tech_verse.jpg',
+      image: `${import.meta.env.BASE_URL}tech_verse.jpg`,
       imagePlaceholder: 'TechVerse Competition'
     },
     {
@@ -43,7 +43,7 @@ const Leadership = () => {
       date: '2025 · Book Reading Competition | ACTS President',
       desc: 'Led the organization of a competition focused on analytical thinking and expression, encouraging students to present insights through structured summaries.',
       features: ['Coordination', 'Event Management', 'Leadership'],
-      image: '/vichar_vistar.jpg',
+      image: `${import.meta.env.BASE_URL}vichar_vistar.jpg`,
       imagePlaceholder: 'Vichar Vistar Event'
     }
   ];
