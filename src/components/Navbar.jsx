@@ -69,12 +69,23 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Toggle */}
-        <div style={{ display: 'flex', gap: '15px', alignItems: 'center' }} className="mobile-nav-toggle">
+        <div className="mobile-nav-toggle" style={{ display: 'none', alignItems: 'center' }}>
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{ background: 'none', border: 'none', color: 'var(--text-color)', cursor: 'pointer' }}
+            style={{ 
+              background: 'rgba(255, 255, 255, 0.05)', 
+              border: '1px solid var(--glass-border)', 
+              color: 'var(--text-color)', 
+              cursor: 'pointer',
+              padding: '10px',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              backdropFilter: 'blur(5px)'
+            }}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -83,40 +94,50 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             style={{
               position: 'absolute',
               top: '100%',
               left: 0,
               width: '100%',
-              backgroundColor: 'var(--bg-color)',
-              padding: '20px 0',
+              backgroundColor: 'rgba(5, 5, 5, 0.95)',
+              backdropFilter: 'blur(20px)',
+              padding: '40px 0',
               borderBottom: '1px solid var(--glass-border)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '20px'
+              gap: '25px',
+              overflow: 'hidden',
+              zIndex: 999
             }}
           >
-            {navLinks.map((link) => (
-              <a 
+            {navLinks.map((link, index) => (
+              <motion.a 
                 key={link.name} 
                 href={link.href}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.05 }}
                 onClick={() => setIsMobileMenuOpen(false)}
-                style={{ fontSize: '1.2rem', fontWeight: 500 }}
+                style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--text-color)' }}
               >
                 {link.name}
-              </a>
+              </motion.a>
             ))}
-            <a 
+            <motion.a 
               href="#contact" 
               className="btn btn-primary"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.05 }}
               onClick={() => setIsMobileMenuOpen(false)}
+              style={{ marginTop: '10px', width: '80%', textAlign: 'center', justifyContent: 'center' }}
             >
               Hire Me
-            </a>
+            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>
@@ -125,6 +146,14 @@ const Navbar = () => {
         @media (min-width: 769px) {
           .desktop-nav { display: flex !important; }
           .mobile-nav-toggle { display: none !important; }
+        }
+        @media (max-width: 768px) {
+          .mobile-nav-toggle { display: flex !important; }
+          nav { 
+            background-color: ${isScrolled ? 'rgba(5, 5, 5, 0.9)' : 'rgba(5, 5, 5, 0.6)'} !important;
+            backdrop-filter: blur(10px) !important;
+            padding: 15px 0 !important;
+          }
         }
       `}</style>
     </nav>

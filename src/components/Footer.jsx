@@ -61,7 +61,6 @@ const Footer = () => {
           opacity: 0.4
         }}>
           <p>© {new Date().getFullYear()} Utkarsha Thakur. All rights reserved.</p>
-          <p style={{ marginTop: '5px' }}>Built with ❤️ using React & Framer Motion</p>
         </div>
       </div>
     </footer>
